@@ -4,7 +4,12 @@ get '/' do
 end
 
 get '/game/question/id' do
-  erb :question
+  if session[:id] 
+    erb :question
+  else
+    redirect to ('/')
+  end
+
 end
 
 
@@ -17,6 +22,7 @@ get '/signup' do
 end
 
 get '/logout' do
+  session.clear
   redirect to ('/')
 end
 
@@ -24,14 +30,33 @@ end
 #______________________________post
 
 post '/create_user' do
-
-redirect to ('/')
+  username = params[:username]
+  email = params[:email]
+  password = params[:password]
+  @current_user = User.new(username: username, email: email, password: password)
+  if @current_user.save
+    session[:id] = @current_user.id
+    redirect to ('/game/question/id')
+  else
+    redirect to ('/')
+  end
 end
 
 post '/login' do
-
-  
-  redirect to ('/game/question/id')
+ username = params[:username]
+ password= params[:password]
+ @sample = User.find_by_username(username)
+   if @sample
+    @current_user = User.authenticate(params[:username],params[:password])
+      if @current_user
+        session[:id]= @current_user.id
+        redirect to ('/game/question/id')
+      else
+        redirect to ('/')
+      end
+    else
+    redirect to ('/')
+  end
 end
 
 post '/answer' do
