@@ -7,3 +7,33 @@
 th {
   text-align: left;
 }
+
+
+header {
+ 
+  padding-top: 0; 
+  height: 100px; 
+  top: 0px; 
+  margin-top: 0;
+  background-color: #177C7C;
+  text-align: 
+}
+
+h1 {
+  margin: 0px;
+  color: #171717;
+  text-align: center;
+
+}
+
+#button {
+    padding: 5px 10px;
+    background: #4479BA;
+    color: #FFF;
+    text-shadow: 1px 1px #00235C
+}
+
+#input {
+  height: 12px;
+  
+}
