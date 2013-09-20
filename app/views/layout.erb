@@ -18,17 +18,20 @@
   <title></title>
 </head>
 <body>
+  <header> 
+    <h1>Welcome to Flashcards!</h1>
+
   <%if session[:id] %>
   <a href="/logout">logout</a>
   <%else%>
   <a href="/signup">signup</a>
   <form action="/login" method="POST">
-    Username: <input type="name" name="username">
-    Password: <input type="password" name="password">
-    <input type="submit" name="submit">
+    Username: <input type="name" name="username" id="input">
+    Password: <input type="password" name="password" id="input">
+    <input type="submit" name="submit" id="button">
   </form>
   <%end%>
-
+  </header>
   <div><%= yield %></div>
   
 </body>

@@ -65,3 +65,12 @@ post '/answer' do
   
   redirect to ('/game/question/id')
 end
+
+
+=begin
+Create a guess for a round/card
+  Needs: round_id and card_id and a user response
+  
+  guess = Guess.new(card_id = params[:card_id], correct?: (params[:user_response] == Card.find(params[:card_id].answer)))
+  Round.find(params[round_id]).guesses << guess
+=end
