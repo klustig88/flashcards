@@ -29,5 +29,14 @@ redirect to ('/')
 end
 
 post '/login' do
+
+  
+  redirect to ('/game/question/id')
+end
+
+post '/answer' do
+
+
+  
   redirect to ('/game/question/id')
 end
