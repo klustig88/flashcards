@@ -18,6 +18,18 @@
   <title></title>
 </head>
 <body>
-  <%= yield %>
+  <%if session[:id] %>
+  <a href="/logout">logout</a>
+  <%else%>
+  <a href="/signup">signup</a>
+  <form action="/login" method="POST">
+    Username: <input type="name" name="username">
+    Password: <input type="password" name="password">
+    <input type="submit" name="submit">
+  </form>
+  <%end%>
+
+  <div><%= yield %></div>
+  
 </body>
 </html>
