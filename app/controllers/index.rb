@@ -3,9 +3,6 @@ get '/' do
   erb :index
 end
 
-get '/game/question/id' do
-  erb :question
-end
 
 
 get '/results' do
@@ -20,6 +17,10 @@ get '/logout' do
   redirect to ('/')
 end
 
+get '/:category/:id' do
+
+  erb :question
+end
 
 #______________________________post
 
